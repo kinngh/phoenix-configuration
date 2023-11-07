@@ -48,6 +48,37 @@ Key.on("right", ["ctrl", "alt", "cmd"], function () {
 
 /**
  *
+ * Half Screens
+ *
+ */
+Key.on("left", ["alt", "cmd"], function () {
+  const screen = Screen.main().flippedVisibleFrame();
+  const window = Window.focused();
+  if (window) {
+    window.setFrame({
+      x: screen.x,
+      y: screen.y,
+      width: screen.width / 2,
+      height: screen.height,
+    });
+  }
+});
+
+Key.on("right", ["alt", "cmd"], function () {
+  const screen = Screen.main().flippedVisibleFrame();
+  const window = Window.focused();
+  if (window) {
+    window.setFrame({
+      x: screen.width / 2,
+      y: screen.y,
+      width: screen.width / 2,
+      height: screen.height,
+    });
+  }
+});
+
+/**
+ *
  * Full Screen
  *
  */
