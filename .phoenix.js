@@ -77,6 +77,19 @@ Key.on("right", ["alt", "cmd"], function () {
   }
 });
 
+Key.on("down", ["alt", "cmd"], function () {
+  const screen = Screen.main().flippedVisibleFrame();
+  const window = Window.focused();
+  if (window) {
+    window.setFrame({
+      x: screen.width / 4,
+      y: screen.y,
+      width: screen.width / 2,
+      height: screen.height,
+    });
+  }
+});
+
 /**
  *
  * Full Screen
