@@ -77,7 +77,9 @@ Key.on("right", ["alt", "cmd"], function () {
   }
 });
 
-Key.on("down", ["alt", "cmd"], function () {
+//Since I use them interchangbly, keep up and down to same setup
+
+function alt_command_key() {
   const screen = Screen.main().flippedVisibleFrame();
   const window = Window.focused();
   if (window) {
@@ -88,7 +90,9 @@ Key.on("down", ["alt", "cmd"], function () {
       height: screen.height,
     });
   }
-});
+}
+Key.on("up", ["alt", "cmd"], alt_command_key);
+Key.on("down", ["alt", "cmd"], alt_command_key);
 
 /**
  *
